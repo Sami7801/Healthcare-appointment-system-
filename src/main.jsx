@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 // Landing Page
 import Landing_page from "./pages/LandingPage/Landing_Page.jsx";
+import "react-notifications/lib/notifications.css";
 
 // Patient
 import Patient_LandingPage from "./pages/Patient_Dashboard/Patient_LandingPage.jsx";
@@ -33,6 +34,7 @@ import {
   DoctorPrivateRoute,
   PatientPrivateRoute,
 } from "./commons/PrivateRoutes.jsx";
+import ApiFetch from "./pages/ApiFetch/ApiFetch.jsx";
 
 const router = createBrowserRouter([
   {
@@ -155,6 +157,10 @@ const router = createBrowserRouter([
     path: "/doctor-login",
     element: <DoctorLogin />,
   },
+  {
+    path: "/api-fetch",
+    element: <ApiFetch />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -162,5 +168,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <Provider store={store}>
       <RouterProvider router={router} />
     </Provider>
+    
   </React.StrictMode>
 );

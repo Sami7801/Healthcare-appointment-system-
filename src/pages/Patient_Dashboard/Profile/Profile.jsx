@@ -9,7 +9,7 @@ import axios from "axios";
 
 const Profile = () => {
   // const [image, setImage] = useState(Avater);
-  const [isEditing, setIsEditing] = useState(true); 
+  const [isEditing, setIsEditing] = useState(true);
   const [formData, setFormData] = useState({
     name: "",
     profile_img: "",
@@ -34,8 +34,13 @@ const Profile = () => {
           },
         }
       );
-      console.log(response.data.data.url);
-      setFormData({ ...formData, profile_img: response.data.data.url });
+      if (response.status == 200) {
+        alert("Image Uploaded");
+        console.log(response.data.data.url);
+        setFormData({ ...formData, profile_img: response.data.data.url });
+      } else {
+        alert("Couldn't upload the image properly");
+      }
     } catch (error) {
       console.error("Error uploading image to imgbb", error);
     }
@@ -67,7 +72,6 @@ const Profile = () => {
         alert("Successfully updated profile");
       });
   };
-
 
   // get profile info
   useEffect(() => {
@@ -207,7 +211,7 @@ const Profile = () => {
 
                 <div>
                   <label
-                    htmlFor="phone"
+                    htmlFor="phone_number"
                     className="block mb-2 text-sm font-medium text-gray-900"
                   >
                     Phone number
@@ -215,7 +219,7 @@ const Profile = () => {
                   <input
                     type="tel"
                     id="phone"
-                    name="phone"
+                    name="phone_number"
                     value={formData.phone_number}
                     onChange={handleChange}
                     className={`bg-gray-100 border-2 outline-none text-gray-900 text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5 ${

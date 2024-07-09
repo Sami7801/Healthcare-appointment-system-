@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-0^uy^&gzu&vdtc654469)2b+-m*6-07422tt(me9u)bb!$s@%a
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-# CSRF_TRUSTED_ORIGINS = ["https://api.miahtrip.com", "https://api.discoverasiatrip.com"]
+CSRF_TRUSTED_ORIGINS = ["https://tiy-efgkjrw6xd.miahtrip.com", "https://easy-doc-jade.vercel.app"]
 # CORS Settings
 CORS_ALLOW_ALL_ORIGINS = True
 # Update this in production
@@ -147,8 +147,10 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_HOST_USER = DEFAULT_FROM_EMAIL = "noreply.service.tanimsk@gmail.com"
 EMAIL_HOST_PASSWORD = "igcosdywfsqodffg"
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 # EMAIL_BACKEND = "django_smtp_ssl.SSLEmailBackend"
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
 
 
 AUTHENTICATION_BACKENDS = (
@@ -180,14 +182,14 @@ ACCOUNT_CONFIRM_EMAIL_ON_GET = False
 
 CELERY_BROKER_URL = "redis://127.0.0.1:6379/0"
 CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
-CELERY_TIMEZONE = 'Asia/Dhaka'
+CELERY_TIMEZONE = "Europe/Amsterdam"
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "Asia/Dhaka"
+TIME_ZONE = "Europe/Amsterdam"
 USE_I18N = True
 USE_TZ = True
 
